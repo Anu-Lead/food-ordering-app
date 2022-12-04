@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Federal Republic of Abula</title>
+</head>
+<body>
+{% extends 'pizza_store/base.html' %}
+{% block 'body' %}
+    <div class="text-center">
+    {% load static %}
+        <img src="{% static 'amala-gbegiri-and-ewedu.jpg' %}" class="img-fluid" alt="FEDERAL REPUBLIC OF ABULA">
+        <h1>REPUBLIC OF ABULA</h1>
+        <h1><a href="{% url 'order' %}">Welcome to the Center of Happiness! <br> Order Your Sumptuous Meal at Cheaper Price</a></h1>
+    </div>
+{#    <h1>FEDERAL REPUBLIC OF ABULA</h1>#}
+{#    <a href="{% url 'order' %}">Welcome to the Center of Happiness! <br> Order a Local Sumptuous Meal at Cheaper Price</a>#}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order More Foods Page</title>
+</head>
+<body>
+{% extends 'pizza_store/base.html' %}
+{% block 'body' %}
+    <div class="container">
+    <h1>Order Hot Abula and Bush Meat</h1>
+    <h2>{{ note }}</h2>
+
+    <form action="{% url 'pizzas' %}" method="post">
+        {% csrf_token %}
+        {{ formset.management_form }}
+
+        {% for form in formset %}
+        {{ form }}
+        <br><br>
+        {% endfor %}
+        <input type="submit" value="Order Food Now">
+    </form>
+    </div>
+{% endblock %}
+</body>
+</html>

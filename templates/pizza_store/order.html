@@ -1,0 +1,44 @@
+{% extends 'pizza_store/base.html' %}
+{% block 'body' %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+<body>
+    {% load widget_tweaks %}
+
+    <div class="container">
+    <h1>Order for Abula</h1>
+    <h2>{{ note }}</h2>
+    {% if created_pizza_pk %}
+        <a href="{% url 'edit_order' created_pizza_pk %}"></a> Edit Your Order</body></a>
+    {% endif %}
+
+    <form action="{% url 'order' %}" method="post">
+        {% csrf_token %}
+        {% for field in pizzaform %}
+        <div class="form-group">
+        {{ field.errors }}
+        {{ field.label_tag }}
+        {% render_field field class='form-control' %}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Order Abula">
+    </form>
+
+    <br><br>
+    Want more local foods?
+
+    <form action="{% url 'pizzas' %}" method="get">
+        {{ multiple_form }}
+        <input type="submit" value="Get Hot Abula">
+    </form>
+  </div>
+
+</body>
+</html>
+{% endblock %}
